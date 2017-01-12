@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "418813618888",
+    "firebase_url": "https://open-city-project.firebaseio.com",
+    "project_id": "open-city-project",
+    "storage_bucket": "open-city-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418813618888:android:a34b45c164f7caed",
+        "android_client_info": {
+          "package_name": "ocp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418813618888-qqh7eqc2tqcj36us5o50gkmr3hirpa5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Er1mlmzqrFfl7bsdnHDuy-fcGgtTMn8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
