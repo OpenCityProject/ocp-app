@@ -7,15 +7,13 @@ The chosen architecture is React Native
 
 TODO 2017-01-12
 ---------------
-* react-native-fcm
-* microsoft-code-push
-* react-native-maps
-* react-native-vector-icons
-* realm
-* redux
+NavEx for navigation
 
-* lodash
-* moment
+1. Login icon on the top right
+2. Navigation drawer
+3. Logos
+4. ListView - bottom right?
+5. Help - from listview
 
 Requirements Spec 2016-11-25
 ----------------------------
