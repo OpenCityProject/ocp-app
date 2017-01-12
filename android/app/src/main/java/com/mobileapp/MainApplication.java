@@ -1,4 +1,4 @@
-package com.mobileapp;
+package ocp.app;
 
 import android.app.Application;
 import android.util.Log;

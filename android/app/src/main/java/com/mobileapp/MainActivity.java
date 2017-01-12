@@ -1,4 +1,4 @@
-package com.mobileapp;
+package ocp.app;
 
 import com.facebook.react.ReactActivity;
 
