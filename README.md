@@ -5,6 +5,18 @@ This is an app for Android and iOS.
 
 The chosen architecture is React Native
 
+TODO 2017-01-12
+---------------
+* react-native-fcm
+* microsoft-code-push
+* react-native-maps
+* react-native-vector-icons
+* realm
+* redux
+
+* lodash
+* moment
+
 Requirements Spec 2016-11-25
 ----------------------------
 ### From outline
