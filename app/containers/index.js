@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  StatusBar,
 } from 'react-native'
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
@@ -18,6 +19,10 @@ class MainApp extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
+        <StatusBar
+          backgroundColor="blue"
+          translucent={true}
+        />
         <PoiMap />
       </View>
     )

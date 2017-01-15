@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  Platform,
 } from 'react-native'
 import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
 import FaIcon from 'react-native-vector-icons/FontAwesome'
 import MapView from 'react-native-maps'
+import DrawerLayout from 'react-native-drawer-layout'
 import _ from 'lodash'
 
 import * as poiActions from '../actions/poi'
@@ -30,23 +34,78 @@ class PoiMap extends Component {
       navigator.geolocation.getCurrentPosition(y, n, options)
     })
     const location = _.pick(position.coords, ['latitude', 'longitude'])
-    this.props.poiActions.setLocation(location)
+    this.props.poiActions.setLocation({...this.props.poi.location, ...location})
+  }
+  _renderMenuButton(){
+    if(Platform.OS==='android'){
+      return (
+        <TouchableNativeFeedback
+          onPress={()=>this._drawer.openDrawer()}
+          background={TouchableNativeFeedback.SelectableBackground()}
+        >
+          <FaIcon name='bars' size={30} />
+        </TouchableNativeFeedback>
+      )
+    } else {
+      return (
+        <TouchableOpacity
+          style={{}}
+          onPress={()=>this._drawer.openDrawer()}
+        >
+          <FaIcon name='bars' size={20} color='white'/>
+        </TouchableOpacity>
+      )
+    }
+  }
+  _setRegion = region=>{
+    this.props.poiActions.setLocation(region)
+  }
+  _renderNavigationView(){
+    return (
+      <View style={{flex: 1, backgroundColor: '#fff', paddingTop: Platform.OS==='ios'?20:0}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+        <Text>Todo:</Text>
+        <Text>LOGO</Text>
+        <Text>Login/register (with google account?)</Text>
+        <Text>Registered:</Text>
+        <Text>Review Submissions</Text>
+        <Text>Settings</Text>
+        <Text>Report an issue</Text>
+      </View>
+    )
   }
   render() {
     const region = {...defaultRegion, ...this.props.poi.location}
-    console.log('region!', region)
     return (
-      <View style={{flex: 1, backgroundColor: 'green'}}>
-        <MapView
-          style={{flex: 1}}
-          region={region}
-        />
-      </View>
+      <DrawerLayout
+        drawerWidth={300}
+        drawerPosition={DrawerLayout.positions.Left}
+        renderNavigationView={this._renderNavigationView}
+        ref={d=>this._drawer=d}
+      >
+        <View style={{flex: 1}}>
+          <MapView
+            style={{flex: 1}}
+            region={region}
+            onRegionChange={this._setRegion}
+          />
+          <View
+            style={styles.menuButton}
+          >
+            {this._renderMenuButton()}
+          </View>
+        </View>
+      </DrawerLayout>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  menuButton: {
+    position: 'absolute'
+  , top: 10 + (Platform.OS==='ios' ? 20 : 0)
+  , left: 10
+  }
 })
 
 
