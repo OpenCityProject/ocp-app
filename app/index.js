@@ -12,7 +12,7 @@ const logger = createLogger()
 const initialState = {}
 const middlewares = [
   //sagaMiddleware,
-  logger
+  //logger
 ]
 const enhancers = [
   applyMiddleware(...middlewares)
